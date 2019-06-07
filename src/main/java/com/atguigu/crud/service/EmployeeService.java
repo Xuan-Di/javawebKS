@@ -105,4 +105,16 @@ public class EmployeeService {
 	public void updatejb(Integer id) {
 		employeeMapper.updatejb(id);
 	}
+
+    public void jsjt(Integer id) {
+        employeeMapper.jsjt(id);
+    }
+
+    public void jskq(Integer id) {
+        employeeMapper.jskq(id);
+    }
+
+    public void jsjb(Integer id) {
+        employeeMapper.jsjb(id);
+    }
 }

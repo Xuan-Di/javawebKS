@@ -299,6 +299,20 @@
             }
         });
     });
+        //点击减少津贴，发送ajax
+    $(document).on("click",".delete_btn",function () {
+        //alert("hahaha");
+        var n=$(this).attr("delete-btn");
+        //alert(n);
+        $.ajax({
+            url:"${APP_PATH}/jsjt/"+n,
+            type:"PUT",
+            success:function (result) {
+                alert(result.msg);
+                to_page(currentPage);
+            }
+        });
+    });
     //点击增加考勤，发送ajax
     $(document).on("click",".edit_btn2",function () {
         //alert("hahaha");
@@ -313,6 +327,20 @@
             }
         });
     });
+    //点击减少考勤，发送ajax
+    $(document).on("click",".delete_btn2",function () {
+        //alert("hahaha");
+        var n=$(this).attr("delete-btn2");
+        //alert(n);
+        $.ajax({
+            url:"${APP_PATH}/jskq/"+n,
+            type:"PUT",
+            success:function (result) {
+                alert(result.msg);
+                to_page(currentPage);
+            }
+        });
+    });
     //点击增加加班天数，发送ajax
     $(document).on("click",".edit_btn3",function () {
         //alert("hahaha");
@@ -321,6 +349,20 @@
         $.ajax({
             url:"${APP_PATH}/jiaban/"+m,
             type:"GET",
+            success:function (result) {
+                alert(result.msg);
+                to_page(currentPage);
+            }
+        });
+    });
+    //点击减少加班天数，发送ajax
+    $(document).on("click",".delete_btn3",function () {
+        //alert("hahaha");
+        var n=$(this).attr("delete-btn3");
+        //alert(n);
+        $.ajax({
+            url:"${APP_PATH}/jsjb/"+n,
+            type:"PUT",
             success:function (result) {
                 alert(result.msg);
                 to_page(currentPage);

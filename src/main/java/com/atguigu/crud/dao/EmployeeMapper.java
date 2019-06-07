@@ -49,4 +49,10 @@ public interface EmployeeMapper {
     void updatekq(Integer id);
 
     void updatejb(Integer id);
+
+    void jsjt(Integer id);
+
+    void jskq(Integer id);
+
+    void jsjb(Integer id);
 }

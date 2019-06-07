@@ -200,7 +200,7 @@ public class EmployeeController {
 	}
 
     /**
-     * 更新津贴
+     * 增加津贴
      * @param id
      * @return
      */
@@ -213,7 +213,21 @@ public class EmployeeController {
     }
 
     /**
-     * 更新考勤
+     * 减少津贴
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/jsjt/{id}", method = RequestMethod.PUT)
+    public Msg jsjt(@PathVariable("id") Integer id) {
+        System.out.println(id);
+        employeeService.jsjt(id);
+        return Msg.success();
+    }
+
+
+    /**
+     * 增加考勤
      * @param id
      * @return
      */
@@ -226,7 +240,20 @@ public class EmployeeController {
     }
 
     /**
-     * 更新加班
+     * 减少考勤
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/jskq/{id}", method = RequestMethod.PUT)
+    public Msg jskq(@PathVariable("id") Integer id) {
+        System.out.println(id);
+        employeeService.jskq(id);
+        return Msg.success();
+    }
+
+    /**
+     * 增加加班
      * @param id
      * @return
      */
@@ -235,6 +262,19 @@ public class EmployeeController {
     public Msg updatejb(@PathVariable("id") Integer id) {
         System.out.println(id);
         employeeService.updatejb(id);
+        return Msg.success();
+    }
+
+    /**
+     * 减少加班
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/jsjb/{id}", method = RequestMethod.PUT)
+    public Msg jsjb(@PathVariable("id") Integer id) {
+        System.out.println(id);
+        employeeService.jsjb(id);
         return Msg.success();
     }
 

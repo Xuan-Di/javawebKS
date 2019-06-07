@@ -167,12 +167,21 @@
 <update id="updatejt" parameterType="integer">
  update xinzi set jintie=jintie+300,money=money+300 WHERE idl=#{idl};
 </update>
+    <update id="jsjt" parameterType="integer">
+     update xinzi set jintie=jintie-300,money=money-300 WHERE idl=#{idl};
+    </update>
 <update id="updatekq" parameterType="integer">
  update xinzi set gongday=gongday+1,money=money+200 WHERE idl=#{idl};
 </update>
+  <update id="jskq" parameterType="integer">
+    update xinzi set gongday=gongday-1,money=money-200 WHERE idl=#{idl};
+  </update>
 <update id="updatejb" parameterType="integer">
  update xinzi set jiaday=jiaday+1,money=money+100 WHERE idl=#{idl};
 </update>
+  <update id="jsjb" parameterType="integer">
+    update xinzi set jiaday=jiaday-1,money=money-100 WHERE idl=#{idl};
+  </update>
 
   <select id="selectByPrimaryKeyWithDept" resultMap="WithDeptResultMap">
   	select 
