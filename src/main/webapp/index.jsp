@@ -15,6 +15,11 @@
 <!--  引入bootstrap样式  -->
 <link href="${APP_PATH}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="${APP_PATH}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
+		/* border-radius */
+		.ziti{color: #398439}
+	</style>
 </head>
 <body>
 
@@ -135,7 +140,7 @@
 		<!-- 标题 -->
 		<div class="row">
 			<div class="col-md-5 ">
-				<button onclick="next()">返回</button>
+				<button  class="glyphicon glyphicon-arrow-left btnn btn-info" onclick="next()"></button>
 			</div>
 			<div class="col-md-6 ">
 				<h1>员工管理</h1>
@@ -216,11 +221,11 @@
 			var emps= result.extend.pageInfo.list;
 			$.each(emps,function(index,item){
 				var checkBoxTd=$("<td><input type='checkbox' class='check_item'/></td>")
-				var empIdTd=$("<td></td>").append(item.empId);
-				var empNameTd=$("<td></td>").append(item.empName);
-				var genderTd=$("<td></td>").append(item.gender=='M'?"男":"女");
-				var emailTd=$("<td></td>").append(item.email);
-				var deptNameTd=$("<td></td>").append(item.department.deptName);
+				var empIdTd=$("<td></td>").append(item.empId).addClass("ziti");
+				var empNameTd=$("<td></td>").append(item.empName).addClass("ziti");
+				var genderTd=$("<td></td>").append(item.gender=='M'?"男":"女").addClass("ziti");
+				var emailTd=$("<td></td>").append(item.email).addClass("ziti");
+				var deptNameTd=$("<td></td>").append(item.department.deptName).addClass("ziti");
 				var editBtn= $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
 				.append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");
 				//为编辑按钮添加一个自定义属性，来表示当前员工. 值就是员工id

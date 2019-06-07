@@ -17,13 +17,19 @@
     <!--  引入bootstrap样式  -->
     <link href="${APP_PATH5}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="${APP_PATH5}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
+        /* border-radius */
+        .ziti{color: #28a4c9}
+        .ziti03{color: teal}
+    </style>
 </head>
 <body>
 <div class="container">
     <!-- 标题 -->
     <div class="row">
         <div class="col-md-5 ">
-           <button onclick="next()">返回</button>
+            <button  class="glyphicon glyphicon-arrow-left btnn btn-info" onclick="next()"></button>
         </div>
         <div class="col-md-6 ">
             <h1>招聘管理</h1>
@@ -91,12 +97,12 @@
         $("#emps_table tbody").empty();
         var emps = result.extend.pageInfo.list;
         $.each(emps, function (index, item) {
-            var empIdTd = $("<td></td>").append(item.zpempid);
-            var empageTd = $("<td></td>").append(item.zpempage);
-            var empNameTd=$("<td></td>").append(item.zpempname);
-            var genderTd = $("<td></td>").append(item.zpgender == 'M' ? "男" : "女");
-            var workingageTd = $("<td></td>").append(item.workingage);
-            var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
+            var empIdTd = $("<td></td>").append(item.zpempid).addClass("ziti");
+            var empageTd = $("<td></td>").append(item.zpempage).addClass("ziti03");
+            var empNameTd=$("<td></td>").append(item.zpempname).addClass("ziti03");
+            var genderTd = $("<td></td>").append(item.zpgender == 'M' ? "男" : "女").addClass("ziti03");
+            var workingageTd = $("<td></td>").append(item.workingage).addClass("ziti03");
+            var editBtn = $("<button></button>").addClass("btn btn-success btn-sm edit_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("录用");
             //为编辑按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             editBtn.attr("edit-id", item.zpempid);
@@ -106,7 +112,7 @@
             //为删除按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             delBtn.attr("delete-btn", item.zpempid);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
-            var statuTd=$("<td></td>").append(item.statu);
+            var statuTd=$("<td></td>").append(item.statu).addClass("ziti03");;
             $("<tr></tr>")
                 .append(empIdTd)
                 .append(empageTd)

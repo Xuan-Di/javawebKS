@@ -6,132 +6,64 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>登录界面</title>
-    <base href="<%=basePath%>">
-    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-    <meta name="author" content="Vincent Garreau"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" media="screen" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <%
+        pageContext.setAttribute("APP_PATH",request.getContextPath());
+    %>
+    <!-- 引入jquery  -->
+    <script type="text/javascript" src="${APP_PATH}/static/js/jquery-1.12.4.min.js"></script>
+    <!--  引入bootstrap样式  -->
+    <link href="${APP_PATH}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${APP_PATH}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<div class="container">
+    <!-- 标题 -->
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
 
-<div  id="particles-js">
-
-</div>
-<!--<form action="queryUser" method='post'>
-    <div id="particles-js">
-        <div class="login">
-            <div class="login-top">
-                登录
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="img/ban.jpg" alt="...">
+            <div class="carousel-caption">
+                ...
             </div>
-            <div class="rg">
-                <a href="zhuce4.html">去注册</a>
-            </div>
-            <div class="login-center clearfix">
-                <div class="login-center-img"><img src="img/name.png"/></div>
-                <div class="login-center-input">
-                    <input type="text" name="uname" value="" placeholder="请输入您的账号" onfocus="this.placeholder=''"
-                           onblur="this.placeholder='请输入您的账号'"/>
-                    <div class="login-center-input-text">账号</div>
-                </div>
-            </div>
-            <div class="login-center clearfix">
-                <div class="login-center-img"><img src="img/password.png"/></div>
-                <div class="login-center-input">
-                    <input type="password" name="pwd" value="" placeholder="请输入您的密码" onfocus="this.placeholder=''"
-                           onblur="this.placeholder='请输入您的密码'"/>
-                    <div class="login-center-input-text">密码</div>
-                </div>
-            </div>
-
-            <div class="reg-bad"><a href="update.jsp">找回密码</a></div>
-            <div class="reg-bac"><a href="kuaisudenglu2.html">快速登录</a></div>
-
-            <div class="checbox">
-
-                <div class="reg-bae">
-                    <label>
-                        <p><input type="checkbox" name="checkboxname" value="">
-                            <small>记住密码</small>
-                        </p>
-                    </label>
-                </div>
-            </div>
-            <div class="login-button">
-                登录
-            </div>
-
-            <div class="div2">
-                <small>第三方登录</small>
-            </div>
-            <div class="login-button1">
-                <a href="#"><img alt="ee" src="img/qq.png"></a>
-            </div>
-            <div class="login-button2">
-                <a href="#"><img alt="ee" src="img/weixin.png"></a>
-            </div>
-            <div class="login-button3">
-                <a href="#"><img alt="ee" src="img/weibo.png"></a>
-            </div>
-
         </div>
-        <div class="sk-rotating-plane"></div>
-
+        <div class="item">
+            <img src="img/weishou.jpg" alt="...">
+            <div class="carousel-caption">
+                ...
+            </div>
+        </div>
+        ...
     </div>
-</form>
--->
-<div style="text-align:center;"></div>
-<!-- scripts -->
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<script type="text/javascript">
-    function hasClass(elem, cls) {
-        cls = cls || '';
-        if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
-        return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
-    }
 
-    function addClass(ele, cls) {
-        if (!hasClass(ele, cls)) {
-            ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
-        }
-    }
-
-    function removeClass(ele, cls) {
-        if (hasClass(ele, cls)) {
-            var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
-            while (newClass.indexOf(' ' + cls + ' ') >= 0) {
-                newClass = newClass.replace(' ' + cls + ' ', ' ');
-            }
-            ele.className = newClass.replace(/^\s+|\s+$/g, '');
-        }
-    }
-
-    document.querySelector(".login-button").onclick = function () {
-        addClass(document.querySelector(".login"), "active")
-        setTimeout(function () {
-            addClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "none"
-        }, 800);
-        setTimeout(function () {
-            removeClass(document.querySelector(".login"), "active")
-            removeClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "block"
-            alert("登录成功")
-        }, 5000);
-        document.getElementsByTagName("form")[0].submit();
-    }
-</script>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+</div>
+</div>
+</div>
 
 </body>
 </html>

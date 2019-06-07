@@ -162,6 +162,12 @@ public class EmployeeController {
 		return Msg.success().add("pageInfo", page);
 	}
 
+    /**
+     * 招聘查询全部人员
+     * @param pn
+     * @return
+     */
+
 	@RequestMapping("/zpemps")
 	@ResponseBody
 	public Msg getEmpsWithJsonzp(@RequestParam(value = "pn", defaultValue = "1") Integer pn) {
@@ -174,6 +180,12 @@ public class EmployeeController {
 		PageInfo page = new PageInfo(zpemps, 5);
 		return Msg.success().add("pageInfo", page);
 	}
+
+    /**
+     * 查询薪资全部人员
+     * @param pn
+     * @return
+     */
 	@RequestMapping("/xinzi")
 	@ResponseBody
 	public Msg getEmpsWithJsonxinzi(@RequestParam(value = "pn", defaultValue = "1") Integer pn) {
@@ -186,6 +198,12 @@ public class EmployeeController {
 		PageInfo page = new PageInfo(xinzis, 5);
 		return Msg.success().add("pageInfo", page);
 	}
+
+    /**
+     * 更新津贴
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/jintie/{id}", method = RequestMethod.PUT)
     public Msg updatejt(@PathVariable("id") Integer id) {
@@ -193,6 +211,12 @@ public class EmployeeController {
         employeeService.updatejt(id);
         return Msg.success();
     }
+
+    /**
+     * 更新考勤
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/kaoqin/{id}", method = RequestMethod.GET)
     public Msg updatekq(@PathVariable("id") Integer id) {
@@ -200,6 +224,12 @@ public class EmployeeController {
         employeeService.updatekq(id);
         return Msg.success();
     }
+
+    /**
+     * 更新加班
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/jiaban/{id}", method = RequestMethod.GET)
     public Msg updatejb(@PathVariable("id") Integer id) {
@@ -208,6 +238,11 @@ public class EmployeeController {
         return Msg.success();
     }
 
+    /**
+     * 更新招聘
+     * @param id
+     * @return
+     */
 	@ResponseBody
 	@RequestMapping(value = "/zply/{id}", method = RequestMethod.PUT)
 	public Msg updatezp(@PathVariable("id") Integer id) {
@@ -215,6 +250,12 @@ public class EmployeeController {
 		employeeService.updatezp(id);
 		return Msg.success();
 	}
+
+    /**
+     * 删除招聘人员
+     * @param id
+     * @return
+     */
 	@RequestMapping(value = "/empzp/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Msg deletezp(@PathVariable("id") Integer id) {

@@ -18,13 +18,20 @@
     <!--  引入bootstrap样式  -->
     <link href="${APP_PATH}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="${APP_PATH}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
+        /* border-radius */
+        .ziti{color: #28a4c9}
+        .moneyziti{color: teal;font-weight: bold}
+        .ziti02{color: darkslategray}
+    </style>
 </head>
 <body>
 <div class="container">
     <!-- 标题 -->
     <div class="row">
         <div class="col-md-5 ">
-            <button onclick="next()">返回</button>
+            <button  class="glyphicon glyphicon-arrow-left btnn btn-info" onclick="next()"></button>
         </div>
         <div class="col-md-6 ">
             <h1>薪资管理</h1>
@@ -67,6 +74,66 @@
 
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12 ">
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                津贴发放具体说明
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            1、工资标准。如果在制订工资标准时，已经考虑了对特殊劳动的补偿，就没有必要另设津贴补偿；如果不能全面反映一些岗位和工种的特殊劳动性质和劳动消耗，就需要单独设立补偿津贴。<br>
+                            2、劳动特殊性。对劳动的特殊性及对雇员的影响，要进行科学测量，作为确定不同等级津贴标准的依据。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                加班福利具体说明
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            1、工作日加班按正常工作日工资150％计算加班补贴。<br>
+                            2、周末加班按正常工作日工资200％计算加班补贴。<br>
+                            3、国家法定节假日加班按正常工作日工资的300％计算加班补贴。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                考勤打卡具体说明
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            考勤方式：公司实行上下班指纹打卡制度，全体员工自觉遵守。<br>
+                            打卡次数：一日二次，即早上班、晚下班各一次补签情况：<br>
+                            因公外出（含出差）未打卡，应于次日填写《漏打卡补卡申请单》，注明外出日期、事由等，并要求有本部门主管证明签字。无故未打卡或只打一次卡均视为旷工。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            工资总额说明：工资=津贴+100*加班次数+200*考勤打卡次数
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     var totalRecord,currentPage;
@@ -98,40 +165,40 @@
         $("#emps_table tbody").empty();
         var emps= result.extend.pageInfo.list;
         $.each(emps,function(index,item){
-            var moneytotal=item.jintie+500*item.jiaday+200*item.gongday;
-            var empIdTd=$("<td></td>").append(item.idl);
-            var empNameTd=$("<td></td>").append(item.namel);
-            var genderTd=$("<td></td>").append(item.jintie);
-            var emailTd=$("<td></td>").append(item.jiaday);
-            var deptNameTd=$("<td></td>").append(item.gongday);
-            var moneyTd=$("<td></td>").append(moneytotal);
-            var editBtn= $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
-                .append($("<span></span>").addClass("glyphicon ")).append("增加");
+            //var moneytotal=item.jintie+500*item.jiaday+200*item.gongday;
+            var empIdTd=$("<td></td>").append(item.idl).addClass("ziti");
+            var empNameTd=$("<td></td>").append(item.namel).addClass("ziti02");
+            var genderTd=$("<td></td>").append(item.jintie).addClass("ziti02");
+            var emailTd=$("<td></td>").append(item.jiaday).addClass("ziti02");
+            var deptNameTd=$("<td></td>").append(item.gongday).addClass("ziti02");
+            var moneyTd=$("<td></td>").append(item.money).addClass("moneyziti");
+            var editBtn= $("<button></button>").addClass("btn btn-success  btn-sm edit_btn btnn")
+                .append($("<span></span>").addClass("glyphicon  glyphicon-plus"));
             //为编辑按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             editBtn.attr("edit-id",item.idl);
             editBtn.attr("wzx",item.idl);
-            var delBtn =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
-                .append($("<span></span>").addClass("glyphicon ")).append("减少");
+            var delBtn =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn btnn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-minus"));
             //为删除按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             delBtn.attr("delete-btn",item.idl);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
-            var editBtn2= $("<button></button>").addClass("btn btn-primary btn-sm edit_btn2")
-                .append($("<span></span>").addClass("glyphicon ")).append("增加");
+            var editBtn2= $("<button></button>").addClass("btn btn-success btn-sm edit_btn2 btnn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-plus "));
             //为编辑按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             editBtn2.attr("edit-id2",item.idl);
             editBtn2.attr("wzx2",item.idl);
-            var delBtn2 =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn2")
-                .append($("<span></span>").addClass("glyphicon")).append("减少");
+            var delBtn2 =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn2 btnn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-minus"));
             //为删除按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             delBtn2.attr("delete-btn2",item.idl);
             var btnTd2 = $("<td></td>").append(editBtn2).append(" ").append(delBtn2);
-            var editBtn3= $("<button></button>").addClass("btn btn-primary btn-sm edit_btn3")
-                .append($("<span></span>").addClass("glyphicon ")).append("增加");
+            var editBtn3= $("<button></button>").addClass("btn btn-success btn-sm edit_btn3 btnn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-plus "));
             //为编辑按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             editBtn3.attr("edit-id3",item.idl);
             editBtn3.attr("wzx3",item.idl);
-            var delBtn3 =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn3")
-                .append($("<span></span>").addClass("glyphicon")).append("减少");
+            var delBtn3 =$("<button></button>").addClass("btn btn-danger btn-sm delete_btn3 btnn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-minus"));
             //为删除按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             delBtn3.attr("delete-btn3",item.idl);
             var btnTd3 = $("<td></td>").append(editBtn3).append(" ").append(delBtn3);
@@ -218,7 +285,7 @@
         var navEle=$("<nav></nav>").append(ul);
         navEle.appendTo("#page_nav_area");
     };
-
+        //点击增加津贴，发送ajax
     $(document).on("click",".edit_btn",function () {
         //alert("hahaha");
         var m = $(this).attr("wzx");
@@ -232,6 +299,7 @@
             }
         });
     });
+    //点击增加考勤，发送ajax
     $(document).on("click",".edit_btn2",function () {
         //alert("hahaha");
         var m = $(this).attr("wzx2");
@@ -245,6 +313,7 @@
             }
         });
     });
+    //点击增加加班天数，发送ajax
     $(document).on("click",".edit_btn3",function () {
         //alert("hahaha");
         var m = $(this).attr("wzx3");
@@ -258,6 +327,7 @@
             }
         });
     });
+    //点击返回主界面
     function next(){
         window.location = "success.jsp";
     }
