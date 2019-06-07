@@ -47,7 +47,8 @@
                     <th>年龄</th>
                     <th>名字</th>
                     <th>性别</th>
-                    <th>工作年龄</th>
+                    <th>工作经验(年)</th>
+                    <th>分数</th>
                     <th>操作</th>
                     <th>状态</th>
                 </tr>
@@ -69,6 +70,12 @@
 
         </div>
     </div>
+    <!--进度条信息-->
+    <div class="row">
+        <div class="col-md-12" id="page_info_jindu">
+
+    </div>
+</div>
 </div>
 <script type="text/javascript">
     var totalRecord,currentPage;
@@ -88,9 +95,50 @@
                 build_page_info(result);
                 //3、解析显示分页条信息
                 bulid_page_nav(result);
-
+                //4、显示进度条信息
+                build_page_jindu(result);
             }
         });
+    }
+    function build_page_jindu(result) {
+        var emps = result.extend.pageInfo.list;
+        var statutotal=0;
+        $.each(emps, function (index, item) {
+            $("#page_info_jindu").empty();
+
+            //alert(statutotal);
+            if(item.statu=="已录用"){
+                statutotal=statutotal+20;
+            }
+            //alert(statutotal);
+            //$("#page_info_jindu").append();
+        // <div class="progress">
+        //         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        //         </div>
+        //         </div>
+            if(statutotal==0){
+                var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","0")
+                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 0%")).append("0%"+"录取");
+            }else if(statutotal==20){
+            var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","20")
+                .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 20%")).append("20%"+"录取");
+            }else if(statutotal==40){
+                var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","40")
+                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 40%")).append("40%"+"录取");
+            }else if(statutotal==60) {
+                var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "60")
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 60%")).append("60%"+"录取");
+            }else if(statutotal==80){
+                var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "80")
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 80%")).append("80%"+"录取");
+            }else{
+                var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "100")
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 100%")).append("100%"+"录取");
+            }
+           // var statuTD=statutotal;
+            $("<div></div>").append(statuTD).appendTo("#page_info_jindu");
+         });
+
     }
     function build_emps_table(result) {
         //构建一个新的表格之前需要清空之前的数据
@@ -113,12 +161,14 @@
             delBtn.attr("delete-btn", item.zpempid);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             var statuTd=$("<td></td>").append(item.statu).addClass("ziti03");;
+            var score=$("<td></td>").append(item.zpempage*3+item.workingage*4).addClass("ziti03");
             $("<tr></tr>")
                 .append(empIdTd)
                 .append(empageTd)
                 .append(empNameTd)
                 .append(genderTd)
                 .append(workingageTd)
+                .append(score)
                 .append(btnTd)
                 .append(statuTd)
                 .appendTo("#emps_table tbody");

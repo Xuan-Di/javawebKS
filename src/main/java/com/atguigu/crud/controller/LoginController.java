@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -47,12 +48,11 @@ public class LoginController {
         return null;
     }
 
-    @RequestMapping("/addUserAjax")
+    @RequestMapping(value = "/addUserAjax")
     @ResponseBody
     public Msg addUserAjax(User user) {
         System.out.println(user.getUserName() + "-----" + user.getPasswd() + "---" + user.getEmail());
         loginService.updatePw(user);
-
         return Msg.success();
     }
 

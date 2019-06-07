@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>修改密码</title>
     <%
         pageContext.setAttribute("APP_PATH3",request.getContextPath());
     %>
@@ -19,10 +19,25 @@
     <script src="${APP_PATH3}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <style type="text/css">
         .ziti{color: #c7254e}
+
+        .btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
+        /* border-radius */
+        .ziti{color: #398439}
     </style>
 </head>
 <body>
-<h2 style="color: darkslategray;text-align:center;">修改密码</h2><br>
+<%--<h2 style="color: darkslategray;text-align:center;">修改密码</h2><br>--%>
+<div class="container">
+    <!-- 标题 -->
+    <div class="row">
+        <div class="col-md-5 ">
+            <button  class="glyphicon glyphicon-arrow-left btnn btn-info" onclick="next()"></button>
+        </div>
+        <div class="col-md-6 ">
+            <h1>修改密码</h1>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-offset-2 col-md-12 ziti">
@@ -76,32 +91,36 @@
 </div>
 
 <script>
-    $(function () {
+    // $(function () {
         $("#commit").click(function () {
-            var email= $("#inputEmail3").val();
-            if(email!="1099393970@qq.com"){
+            var $email= $("#inputEmail3").val();
+            if($email!="1099393970@qq.com"){
                 alert("邮箱有误！");
                return false;
             }
             $.ajax({
-                url: "${APP_PATH3}/addUserAjax",
-                type: "GET",
+                url:"${APP_PATH3}/addUserAjax",
+                type:"POST",
                 //.serialize() 当提交多条表单数据时，我们可以采用当表单进行序列化的方式简化原有的操作
-                data: $("#userInfo2").serialize(),
+                data:$("#userInfo2").serialize(),
                 dataType: "json",
-                success: function (result) {
-                    if (result.code==100) {
+                success: function(result){
+                    // if(result.code==100){
                        // $("#result").html("修改成功");
                         alert("修改成功");
-                       window.location.href="login.jsp";
-                    } else {
-                       // $("#result").html("修改失败");
-                        alert("修改失败");
+                      // window.location.href="login.jsp";
+                    // }else{
+                    //    // $("#result").html("修改失败");
+                    //     alert("修改失败");
                     }
-                }
-            })
-        })
-    })
+                // }
+            });
+        });
+    // });
+    //点击返回主界面
+    function next(){
+        window.location = "success.jsp";
+    }
 </script>
 
 
