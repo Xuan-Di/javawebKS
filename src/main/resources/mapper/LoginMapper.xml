@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.crud.dao.LoginMapper">
+    <select id="queryUser" parameterType="com.atguigu.crud.bean.User" resultType="Integer">
+        SELECT COUNT(*) FROM user WHERE userName= #{userName} AND passwd= #{passwd};
+    </select>
+
+    <update id="updatePw" parameterType="com.atguigu.crud.bean.User"  >
+        update User set passwd=#{passwd} where userName= #{userName} AND email=#{email};
+    </update>
+
+
+
+</mapper>

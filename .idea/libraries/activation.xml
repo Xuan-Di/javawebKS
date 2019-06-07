@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="activation">
+    <CLASSES>
+      <root url="jar://D:/mygit/Eamil/bin/activation.jar!/" />
+      <root url="jar://D:/mygit/Eamil/bin/commons-email-1.5.jar!/" />
+      <root url="jar://D:/mygit/Eamil/bin/javax.mail.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

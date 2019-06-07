@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/../PlayProject/src/org/lanqiao/servlet/EmailServlet1.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/bean/Employee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/controller/DepartmentController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/controller/EmployeeController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/service/EmployeeService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/test/MapperTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/test/MvcTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/atguigu/crud/utils/EmailUtils.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
