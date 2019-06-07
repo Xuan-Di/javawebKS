@@ -52,6 +52,7 @@ public class LoginController {
     public Msg addUserAjax(User user) {
         System.out.println(user.getUserName() + "-----" + user.getPasswd() + "---" + user.getEmail());
         loginService.updatePw(user);
+
         return Msg.success();
     }
 

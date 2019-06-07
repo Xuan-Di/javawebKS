@@ -23,7 +23,7 @@
         .btnn{width: 100px;height: 80px;border-radius: 50%;border: none;color: teal}
         /* border-radius */
         .ziti{color: #28a4c9}
-        .ziti03{color: teal}
+        .ziti03{color: teal;font-weight: bold}
     </style>
 </head>
 <body>
@@ -89,10 +89,10 @@
         <div class="col-md-4 col-md-offset-4">
             <img src="img/weishou.jpg" class="img-responsive img-thumbnail">
             <h1 class="page-header" >人气作品在线看</h1>
-            <p> <a href="http://www.iqiyi.com/lib/m_212137614.html">火影忍者</a> <br>
-            <a href="http://www.iqiyi.com/a_19rrhb3xvl.html?vfm=2008_aldbd">海贼王</a> <br>
-            <a href="http://www.iqiyi.com/lib/m_212137614.html">进击的巨人</a> <br>
-            <a href="#">刀剑神域</a> <br></p>
+            <p> <a href="http://www.iqiyi.com/lib/m_212137614.html" class="ziti03">火影忍者</a> <br>
+            <a href="http://www.iqiyi.com/a_19rrhb3xvl.html?vfm=2008_aldbd" class="ziti03">海贼王</a> <br>
+            <a href="http://www.iqiyi.com/lib/m_212137614.html" class="ziti03">进击的巨人</a> <br>
+            <a href="#" class="ziti03">刀剑神域</a> <br></p>
         </div>
     </div>
 </div>
@@ -149,13 +149,13 @@
     <%--<div class="container">--%>
     <div class="row">
     <div class="col-md-1 col-md-offset-2">
-    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn"  onclick="next()">员工管理</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn ziti03"  onclick="next()">员工管理</button>
     </div>
     <div class="col-md-1 col-md-offset-2">
-    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn"  onclick="next2()">薪资管理</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn ziti03"  onclick="next2()">薪资管理</button>
     </div>
     <div class="col-md-1 col-md-offset-2">
-    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn"  onclick="next1()">招聘管理</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block btn btn-info btnn ziti03"  onclick="next1()">招聘管理</button>
     </div>
     </div>
     <%--</div>--%>

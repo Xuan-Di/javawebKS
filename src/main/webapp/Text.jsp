@@ -17,11 +17,23 @@
     <!--  引入bootstrap样式  -->
     <link href="${APP_PATH3}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="${APP_PATH3}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .ziti{color: #c7254e}
+    </style>
 </head>
 <body>
 <h2 style="color: darkslategray;text-align:center;">修改密码</h2><br>
-<table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-12 ziti">
+            修改密码说明:<br>
+            用户名和邮箱必须正确才能成功修改密码
+        </div>
 
+    </div>
+</div>
+<div class="container">
+<table>
     <form class="form-horizontal"  id="userInfo2" method="get">
         <div class="form-group">
 
@@ -29,18 +41,21 @@
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="userName" placeholder="UerName">
             </div>
+
         </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label" style="text-align:right">邮箱地址</label>
             <div class="col-sm-10">
                 <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
             </div>
+
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label" style="text-align:right">新密码</label>
             <div class="col-sm-10">
                 <input type="password" name="passwd" class="form-control" id="inputPassword3" placeholder="Password">
             </div>
+
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -57,13 +72,8 @@
             </div>
         </div>
     </form>
-   <!-- <form id="userInfo2" method="get">
-        姓名:<input type="text" name="userName"><br>
-        密码:<input type="text" name="passwd"><br>
-        邮箱:<input type="text" name="email"><br>
-        <input id="commit" type="button" value="提交">
-    </form>-->
 </table>
+</div>
 
 <script>
     $(function () {
@@ -83,7 +93,7 @@
                     if (result.code==100) {
                        // $("#result").html("修改成功");
                         alert("修改成功");
-                        window.location="login.jsp";
+                       window.location.href="login.jsp";
                     } else {
                        // $("#result").html("修改失败");
                         alert("修改失败");
