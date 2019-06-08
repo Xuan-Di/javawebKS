@@ -18,7 +18,7 @@
     <link href="${APP_PATH3}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="${APP_PATH3}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .ziti{color: #c7254e}
+
 
         .btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
         /* border-radius */
@@ -83,7 +83,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success" id="commit">确认更改</button>
+                <button type="button" class="btn btn-success" id="commit">确认更改</button>
             </div>
         </div>
     </form>
@@ -93,11 +93,11 @@
 <script>
     // $(function () {
         $("#commit").click(function () {
-            var $email= $("#inputEmail3").val();
-            if($email!="1099393970@qq.com"){
-                alert("邮箱有误！");
-               return false;
-            }
+            // var $email= $("#inputEmail3").val();
+            // if($email!="1099393970@qq.com"){
+            //     alert("邮箱有误！");
+            //    return false;
+            // }
             $.ajax({
                 url:"${APP_PATH3}/addUserAjax",
                 type:"POST",
@@ -105,15 +105,14 @@
                 data:$("#userInfo2").serialize(),
                 dataType: "json",
                 success: function(result){
-                    // if(result.code==100){
-                       // $("#result").html("修改成功");
+                    if(result.code==100){
                         alert("修改成功");
-                      // window.location.href="login.jsp";
-                    // }else{
-                    //    // $("#result").html("修改失败");
-                    //     alert("修改失败");
+                      window.location.href="success.jsp";
+                    }else{
+                       // $("#result").html("修改失败");
+                        alert("修改失败");
                     }
-                // }
+                }
             });
         });
     // });

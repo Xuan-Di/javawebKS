@@ -24,4 +24,8 @@ public class LoginService {
        loginMapper.updatePw(user);
     }
 
+    public boolean check(User user) {
+        int a=loginMapper.check(user);
+        return a==1;
+    }
 }

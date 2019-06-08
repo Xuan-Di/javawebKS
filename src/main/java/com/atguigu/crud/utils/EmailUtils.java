@@ -24,31 +24,31 @@ public class EmailUtils {
             sb.append(list.get(i));
         }
         String afterShuffle = sb.toString();
-        String result = afterShuffle.substring(3, 9);
+        String result = afterShuffle.substring(5, 9);
         System.out.print(result);
         return result;
     }
-    // å‘é€éªŒè¯ç 
+    // ·¢ËÍÑéÖ¤Âë
     public static String sendEamilCode(String eamil) {
         HtmlEmail send = new HtmlEmail();
-        // è·å–éšæœºéªŒè¯ç 
+        // »ñÈ¡Ëæ»úÑéÖ¤Âë
         String resultCode = EmailUtils.achieveCode();
         try {
             send.setHostName("smtp.qq.com");
-            send.setSmtpPort(465);//ç«¯å£å·
-            send.setSSLOnConnect(true); //å¼€å¯SSLåŠ å¯†
+            send.setSmtpPort(465);//¶Ë¿ÚºÅ
+            send.setSSLOnConnect(true); //¿ªÆôSSL¼ÓÃÜ
             send.setCharset("utf-8");
-            send.addTo(eamil);//æ¥æ”¶è€…çš„QQEamil
-            send.setFrom("1099393970@qq.com", "æ‰¾å›å¯†ç ");//ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å‘é€è€…çš„QQEamilç¬¬äºŒä¸ªå‚æ•°æ˜¯å‘é€è€…QQæ˜µç§°
-            send.setAuthentication("1099393970@qq.com", "uplmmnspagycbahb"); //ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å‘é€è€…çš„QQEamil Â  ç¬¬äºŒä¸ªå‚æ•°æ˜¯åˆšåˆšè·å–çš„æˆæƒç 
-            send.setSubject("ä¿®æ”¹å¯†ç éªŒè¯ç ");//Eamilçš„æ ‡é¢˜ Â ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯æˆ‘å†™çš„åˆ¤æ–­ä¸Šä¸‹åˆï¼Œåˆ æ‰å³å¯
-            send.setMsg("éªŒè¯ç :" + resultCode );//Eamilçš„å†…å®¹
-            send.send();//å‘é€
+            send.addTo(eamil);//½ÓÊÕÕßµÄQQEamil
+            send.setFrom("1099393970@qq.com", "ÕÒ»ØÃÜÂë");//µÚÒ»¸ö²ÎÊıÊÇ·¢ËÍÕßµÄQQEamilµÚ¶ş¸ö²ÎÊıÊÇ·¢ËÍÕßQQêÇ³Æ
+            send.setAuthentication("1099393970@qq.com", "uplmmnspagycbahb"); //µÚÒ»¸ö²ÎÊıÊÇ·¢ËÍÕßµÄQQEamil ? µÚ¶ş¸ö²ÎÊıÊÇ¸Õ¸Õ»ñÈ¡µÄÊÚÈ¨Âë
+            send.setSubject("ĞŞ¸ÄÃÜÂëÑéÖ¤Âë");//EamilµÄ±êÌâ ?µÚÒ»¸ö²ÎÊıÊÇÎÒĞ´µÄÅĞ¶ÏÉÏÏÂÎç£¬É¾µô¼´¿É
+            send.setMsg("ÑéÖ¤Âë:" + resultCode );//EamilµÄÄÚÈİ
+            send.send();//·¢ËÍ
 
         } catch (EmailException e) {
             e.printStackTrace();
         }
-        return resultCode;//åŒç­‰éªŒè¯ç 
+        return resultCode;//Í¬µÈÑéÖ¤Âë
     }
 //    public static void main(String[] args) {
 //        achieveCode();

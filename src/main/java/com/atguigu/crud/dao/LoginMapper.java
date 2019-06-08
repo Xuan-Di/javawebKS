@@ -10,4 +10,6 @@ public interface LoginMapper {
     int queryUser(User user);
 
     int updatePw(User user);
+
+    int check(User user);
 }

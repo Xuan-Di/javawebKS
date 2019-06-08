@@ -72,9 +72,12 @@
     </div>
     <!--进度条信息-->
     <div class="row">
+        <div class="col-md-12 ziti" >
+            本页录用进度
+        </div>
         <div class="col-md-12" id="page_info_jindu">
 
-    </div>
+        </div>
 </div>
 </div>
 <script type="text/javascript">
@@ -111,29 +114,28 @@
                 statutotal=statutotal+20;
             }
             //alert(statutotal);
-            //$("#page_info_jindu").append();
         // <div class="progress">
         //         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
         //         </div>
         //         </div>
             if(statutotal==0){
                 var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","0")
-                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 0%")).append("0%"+"录取");
+                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 0%")).append("0%"+"录用");
             }else if(statutotal==20){
             var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","20")
-                .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 20%")).append("20%"+"录取");
+                .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 20%")).append("20%"+"录用");
             }else if(statutotal==40){
                 var statuTD=$("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role","progressbar").attr("aria-valuenow","40")
-                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 40%")).append("40%"+"录取");
+                    .attr("aria-valuemin","0").attr("aria-valuemax","100").attr("style","width: 40%")).append("40%"+"录用");
             }else if(statutotal==60) {
                 var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "60")
-                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 60%")).append("60%"+"录取");
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 60%")).append("60%"+"录用");
             }else if(statutotal==80){
                 var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "80")
-                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 80%")).append("80%"+"录取");
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 80%")).append("80%"+"录用");
             }else{
                 var statuTD = $("<div></div>").addClass("progress").append($("<div></div>").addClass("progress-bar progress-bar-success").attr("role", "progressbar").attr("aria-valuenow", "100")
-                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 100%")).append("100%"+"录取");
+                    .attr("aria-valuemin", "0").attr("aria-valuemax", "100").attr("style", "width: 100%")).append("100%"+"录用");
             }
            // var statuTD=statutotal;
             $("<div></div>").append(statuTD).appendTo("#page_info_jindu");

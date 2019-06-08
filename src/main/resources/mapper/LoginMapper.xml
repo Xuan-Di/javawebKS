@@ -9,5 +9,8 @@
         update User set passwd=#{passwd} where userName= #{userName} AND email=#{email};
     </update>
 
+    <select id="check" parameterType="com.atguigu.crud.bean.User" resultType="integer">
+        SELECT COUNT(*) FROM user WHERE userName= #{userName} AND email=#{email};
+    </select>
 
 </mapper>

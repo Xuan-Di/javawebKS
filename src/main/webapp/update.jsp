@@ -97,21 +97,18 @@
         });
     }
 
-
-   /* function validator()
+     function validator()
     {	console.log("ffff");
         var $test = $("#test").val();
         window.flag = "";
         $.ajax({
-            url:"Match",
+            url:"${APP_PATH2}/Match",
             请求方式:"post",
             data:"test="+$test,
             success:function(result,testStatus)
             {
                 if(result=="true"){
-
                     window.flag = true;
-
                 }else{
                     alert("验证码错误！");
                     window.flag=false;
@@ -122,9 +119,8 @@
             },
             async: false
         });
-
         return window.flag;
-    }*/
+    }
 
 </script>
 </body>
