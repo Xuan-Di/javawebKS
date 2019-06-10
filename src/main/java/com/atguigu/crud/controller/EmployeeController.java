@@ -182,13 +182,21 @@ public class EmployeeController {
 				}
 			});
 		}
+		if(paixu==2){
+			Collections.sort(zpemps, new Comparator<Zpb>() {
+				@Override
+				public int compare(Zpb o1, Zpb o2) {
+					return o1.getWorkingage() - o2.getWorkingage();
+				}
+			});
+		}
+			//只需要将pageInfo包装，交给页面就行了
+			//查完以后使用pageInfo包装数据记录;可以传入连续显示的页数
+			PageInfo page = new PageInfo(zpemps, 5);
 
-		//只需要将pageInfo包装，交给页面就行了
-		//查完以后使用pageInfo包装数据记录;可以传入连续显示的页数
-		PageInfo page = new PageInfo(zpemps, 5);
 
+			return Msg.success().add("pageInfo", page);
 
-		return Msg.success().add("pageInfo", page);
 	}
 
     /**

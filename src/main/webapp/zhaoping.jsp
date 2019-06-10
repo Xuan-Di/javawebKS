@@ -85,7 +85,8 @@
     var totalRecord,currentPage;
     function px() {
         //alert("hahah");
-        paixu=1;
+        paixu=paixu+1;
+        paixu=paixu%3;
         to_page(currentPage);
     }
 
