@@ -40,7 +40,7 @@ public class EmailUtils {
             send.setCharset("utf-8");
             send.addTo(eamil);//接收者的QQEamil
             send.setFrom("1099393970@qq.com", "找回密码");//第一个参数是发送者的QQEamil第二个参数是发送者QQ昵称
-            send.setAuthentication("1099393970@qq.com", "uplmmnspagycbahb"); //第一个参数是发送者的QQEamil ? 第二个参数是刚刚获取的授权码
+            send.setAuthentication("1099393970@qq.com", "eupcpmbdkikohaef"); //第一个参数是发送者的QQEamil ? 第二个参数是刚刚获取的授权码
             send.setSubject("修改密码验证码");//Eamil的标题 ?第一个参数是我写的判断上下午，删掉即可
             send.setMsg("验证码:" + resultCode );//Eamil的内容
             send.send();//发送

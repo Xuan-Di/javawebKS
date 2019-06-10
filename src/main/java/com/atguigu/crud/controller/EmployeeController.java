@@ -7,6 +7,7 @@ import com.atguigu.crud.bean.Zpb;
 import com.atguigu.crud.service.EmployeeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -15,10 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 员工操作控制层
@@ -170,14 +168,26 @@ public class EmployeeController {
 
 	@RequestMapping("/zpemps")
 	@ResponseBody
-	public Msg getEmpsWithJsonzp(@RequestParam(value = "pn", defaultValue = "1") Integer pn) {
+	public Msg getEmpsWithJsonzp(@RequestParam(value = "pn", defaultValue = "1") Integer pn,@RequestParam("paixu") Integer paixu) {
+
 		//在查询前使用pageHelper;传入页码以及每页查询几条记录
 		PageHelper.startPage(pn, 5);
 		//startPage之后紧跟分页查询
 		List<Zpb> zpemps = employeeService.getzpAll();
+		if(paixu==1) {
+			Collections.sort(zpemps, new Comparator<Zpb>() {
+				@Override
+				public int compare(Zpb o1, Zpb o2) {
+					return o2.getWorkingage() - o1.getWorkingage();
+				}
+			});
+		}
+
 		//只需要将pageInfo包装，交给页面就行了
 		//查完以后使用pageInfo包装数据记录;可以传入连续显示的页数
 		PageInfo page = new PageInfo(zpemps, 5);
+
+
 		return Msg.success().add("pageInfo", page);
 	}
 

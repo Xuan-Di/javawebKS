@@ -21,7 +21,7 @@
         .btnn{width: 30px;height: 30px;border-radius: 50%;border: none}
         /* border-radius */
         .ziti{color: #28a4c9}
-        .ziti03{color: teal}
+        .ziti03{color: teal;font-weight: bold}
     </style>
 </head>
 <body>
@@ -47,7 +47,7 @@
                     <th>年龄</th>
                     <th>名字</th>
                     <th>性别</th>
-                    <th>工作经验(年)</th>
+                    <th onclick="px()" class="btn btn-warning ziti03">工作经验(年)</th>
                     <th>分数</th>
                     <th>操作</th>
                     <th>状态</th>
@@ -81,14 +81,21 @@
 </div>
 </div>
 <script type="text/javascript">
+    var paixu=0;
     var totalRecord,currentPage;
+    function px() {
+        //alert("hahah");
+        paixu=1;
+        to_page(currentPage);
+    }
+
     $(function(){
         to_page(1);
     });
     function to_page(pn){
         $.ajax({
             url:"${APP_PATH5}/zpemps",
-            data:"pn="+pn,
+            data:{"pn":pn,"paixu":paixu},
             type:"GET",
             success:function(result){
                 //console.log(result);

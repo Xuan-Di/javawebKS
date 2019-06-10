@@ -22,12 +22,15 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <style>
+        .ziti{color: darkslategray;font-weight: bold}
+    </style>
 </head>
 <body>
 <form action="queryUser" method='post'>
     <div id="particles-js">
         <div class="login">
-            <div class="login-top">
+            <div class="login-top ziti" style="text-align: center">
                 登录
             </div>
             <div class="rg">
