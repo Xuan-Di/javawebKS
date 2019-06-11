@@ -170,7 +170,11 @@
             //为删除按钮添加一个自定义属性，来表示当前员工. 值就是员工id
             delBtn.attr("delete-btn", item.zpempid);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
-            var statuTd=$("<td></td>").append(item.statu).addClass("ziti03");;
+            if(item.statu=="已录用"){
+            var statuTd=$("<td></td>").append(item.statu).addClass("ziti03");
+            }else{
+                var statuTd=$("<td></td>").append(item.statu);
+            }
             var score=$("<td></td>").append(item.zpempage*3+item.workingage*4).addClass("ziti03");
             $("<tr></tr>")
                 .append(empIdTd)

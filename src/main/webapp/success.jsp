@@ -70,7 +70,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="Text.jsp" class="btn btn-info glyphicon glyphicon-user">修改密码</a></li>
+                        <li><a href="gaimi.jsp" class="btn btn-info glyphicon glyphicon-user">修改密码</a></li>
                         <li><a href="login.jsp" class="btn btn-danger glyphicon glyphicon-off">用户注销</a></li>
                     </ul>
                 </li>
