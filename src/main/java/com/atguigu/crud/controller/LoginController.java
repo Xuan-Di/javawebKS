@@ -47,6 +47,7 @@ public class LoginController {
             //return "success";
             //request.getRequestDispatcher("/views/success.jsp").forward(request, response);
             //Myemail.Test();
+            request.getSession().setAttribute("uname", name);
             response.sendRedirect("success.jsp");
             return null;
         }

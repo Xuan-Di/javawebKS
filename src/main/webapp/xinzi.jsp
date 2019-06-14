@@ -46,7 +46,7 @@
                 <thead>
                 <tr>
 
-                    <th>#</th>
+                    <th>序号</th>
                     <th>姓名</th>
                     <th>津贴</th>
                     <th>加班天数</th>

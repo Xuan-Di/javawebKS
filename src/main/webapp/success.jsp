@@ -11,6 +11,8 @@
     <title>系统界面</title>
     <%
         pageContext.setAttribute("APP_PATH",request.getContextPath());
+//        String uname =(String) request.getSession().getAttribute("uname");
+//        pageContext.setAttribute("username",uname);
     %>
 
     <!-- 引入jquery  -->
@@ -65,8 +67,8 @@
                 </div>
                 <button type="submit" class="btn btn-default"  >Submit</button>
             </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+            <ul class="nav navbar-nav navbar-right member">
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -173,6 +175,7 @@
        // alert("hahah");
        // window.location = "index.jsp";
    // }
+    //搜索框
         $("form").submit(function (e) {
             var $serch = $("#serch").val();
             if ($serch =="员工管理") {
@@ -196,9 +199,17 @@
                 return;
             }
         });
-
-
-
+//根据登录账号名不同显示头像
+    $(function () {
+    // <li><a href="#"><img alt="Brand" src="img/weibo.png"></a></li>
+        var uname="${sessionScope.uname}";
+       if(uname=="wzx") {
+           $(".collapse .member").prepend(`<li><a href="#"><img alt="Brand" src="img/toux1.png" style="width: 30px"></a></li>`);
+       }
+       if(uname=="lq") {
+            $(".collapse .member").prepend(`<li><a href="#"><img alt="Brand" src="img/toux2.png" style="width: 30px"></a></li>`);
+        }
+    });
 
 </script>
 </body>

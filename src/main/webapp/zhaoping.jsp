@@ -43,7 +43,7 @@
             <table class="table table-hover" id="emps_table">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th>序号</th>
                     <th>年龄</th>
                     <th>名字</th>
                     <th>性别</th>
@@ -111,6 +111,7 @@
             }
         });
     }
+    //根据录用个数显示进度条
     function build_page_jindu(result) {
         var emps = result.extend.pageInfo.list;
         var statutotal=0;
@@ -252,6 +253,8 @@
         var navEle=$("<nav></nav>").append(ul);
         navEle.appendTo("#page_nav_area");
     };
+
+    //点击删除发送ajax
     $(document).on("click",".delete_btn",function () {
     //alert("hahah");
         var empName =$(this).parents("tr").find("td:eq(2)").text();
@@ -260,6 +263,7 @@
             deleteEmp($(this).attr("delete-btn"));
         }
     });
+
     function deleteEmp(deleteid){
         $.ajax({
             url:"${APP_PATH5}/empzp/"+deleteid,
@@ -271,6 +275,7 @@
             }
         });
     }
+    //点击录用发送ajax
     $(document).on("click",".edit_btn",function () {
     //alert("hhhhh");
         if(confirm("确认录用吗？")){

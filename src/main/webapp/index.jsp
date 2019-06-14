@@ -163,11 +163,11 @@
 						<input type="checkbox" id="check_all"/>
 
 					</th>
-					<th>#</th>
-					<th>empName</th>
-					<th>gender</th>
-					<th>email</th>
-					<th>deptName</th>
+					<th>序号</th>
+					<th>员工姓名</th>
+					<th>性别</th>
+					<th>邮箱</th>
+					<th>部门名称</th>
 					<th>操作</th>
 				</tr>
 				</thead>
